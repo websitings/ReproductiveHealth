@@ -1,0 +1,567 @@
+/*
+=============== 
+Fonts
+===============
+*/
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Roboto:400,700&display=swap");
+
+/*
+=============== 
+Variables
+===============
+*/
+
+:root {
+  /* dark shades of primary color*/
+  --clr-primary-1: hsl(205, 86%, 17%);
+  --clr-primary-2: hsl(205, 77%, 27%);
+  --clr-primary-3: hsl(205, 72%, 37%);
+  --clr-primary-4: hsl(205, 63%, 48%);
+  /* primary/main color */
+  --clr-primary-5: #49a6e9;
+  /* lighter shades of primary color */
+  --clr-primary-6: hsl(205, 89%, 70%);
+  --clr-primary-7: hsl(205, 90%, 76%);
+  --clr-primary-8: hsl(205, 86%, 81%);
+  --clr-primary-9: hsl(205, 90%, 88%);
+  --clr-primary-10: hsl(205, 100%, 96%);
+  /* darkest grey - used for headings */
+  --clr-grey-1: hsl(209, 61%, 16%);
+  --clr-grey-2: hsl(211, 39%, 23%);
+  --clr-grey-3: hsl(209, 34%, 30%);
+  --clr-grey-4: hsl(209, 28%, 39%);
+  /* grey used for paragraphs */
+  --clr-grey-5: hsl(210, 22%, 49%);
+  --clr-grey-6: hsl(209, 23%, 60%);
+  --clr-grey-7: hsl(211, 27%, 70%);
+  --clr-grey-8: hsl(210, 31%, 80%);
+  --clr-grey-9: hsl(212, 33%, 89%);
+  --clr-grey-10: hsl(210, 36%, 96%);
+  --clr-white: #fff;
+  --clr-red-dark: hsl(360, 67%, 44%);
+  --clr-red-light: hsl(360, 71%, 66%);
+  --clr-green-dark: hsl(125, 67%, 44%);
+  --clr-green-light: hsl(125, 71%, 66%);
+  --clr-gold: #c59d5f;
+  --clr-black: #222;
+  --ff-primary: "Roboto", sans-serif;
+  --ff-secondary: "Open Sans", sans-serif;
+  --transition: all 0.3s linear;
+  --spacing: 0.25rem;
+  --radius: 0.5rem;
+  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  --max-width: 1170px;
+  --fixed-width: 620px;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Lato", sans-serif;
+  }
+  
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: -1;
+    opacity: 0;
+    transition: 1s all;
+  }
+  
+  .navbar {
+    display: flex;
+    align-items: center;
+    width: auto;
+    background-color: #fff;
+    box-shadow: 0px 10px 10px 3px rgba(0, 0, 0, 0.3);
+    position: relative;
+    padding: 0px 70px;
+    background-color: #fff;
+  }
+  .navbar-logo {
+    color: #ff3f34;
+    text-decoration: none;
+    font-size: 25px;
+    padding: 0px 20px;
+  }
+  
+  .navbar-links {
+    list-style-type: none;
+    display: flex;
+  }
+  .navbar-links li a {
+    display: block;
+    text-decoration: none;
+    color: #444;
+    padding: 20px 20px;
+    font-weight: 700;
+    transition: 0.4s all;
+  }
+  
+  .navbar-links li.navbar-dropdown {
+    position: relative;
+  }
+  
+  .navbar-links li.navbar-dropdown:hover .dropdown {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  
+  .navbar-links li.navbar-dropdown .dropdown {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    padding: 20px 0;
+    top: 100%;
+    transform: translateY(50px);
+    left: 0;
+    width: 250px;
+    background-color: #fff;
+    box-shadow: 0px 10px 10px 3px rgba(0, 0, 0, 0.3);
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    z-index: 111;
+    transition: 0.4s all;
+  }
+  .navbar-links li.navbar-dropdown .dropdown a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: 400;
+  }
+  .navbar-dropdown .dropdown a:hover {
+    padding-left: 30px;
+  }
+  .navbar-links li a:hover {
+    color: #ff3f34;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: 90vh;
+    background-image: url("src/background.jpg");;
+    background-size: cover;
+  }
+  
+  .header-inner {
+    color: #ff557f;
+    text-shadow: 0px 5px 7px rgba(0, 0, 0, .8);
+  }
+  
+  
+  
+  .header-inner form input[type="search"] {
+    position: relative;
+    width: 500px;
+    border: none;
+    padding: 15px;
+    border-radius: 27px;
+    box-shadow: 0px 0px 15px 3px rgba(0, 0, 0, 0.3);
+    z-index: 11;
+  }
+  .header-inner form input[type="search"]:focus {
+    outline: none;
+  }
+  
+  .header-inner form input[type="search"]:focus + div {
+    z-index: 1;
+    opacity: 1;
+  }
+  
+  ::placeholder {
+    color: #666;
+    font-weight: 400;
+  }
+
+/*Content*/
+.title{
+  position: absolute;
+	top: 40%;
+	left: 15%;
+	z-index: 2;
+	transform: translateY(-50%);
+}
+
+.title h1 {
+  font-size: 70px;
+  font-family: "Sofia", cursive;
+}
+
+.title h2{
+  font-size: 30px;
+  font-family: "Sofia", cursive;
+}
+
+.title .blue{
+  color: rgb(73, 208, 226);
+}
+
+.title h3{
+  margin-top: 100px;
+  margin-bottom: 20px;
+  font-size: 25px;
+  font-family: "Sofia", cursive;
+}
+
+
+.buttonsss{
+  position: absolute;
+  width: 800px;
+}
+
+.buttonsss button{
+	width: 200px;
+	padding: 15px 0;
+	margin: 20px 10px;
+	color: rgb(61, 61, 248);
+	border-radius: 25px;
+	text-align: center;
+	border: 2px solid #284cff;
+	cursor: pointer;
+	font-weight: bold;	
+	background: transparent;
+	background-image: url("../src/button.png");
+	background-repeat: repeat-x;
+	background-position: 0 -100%;
+	transition: 1.5s ease;
+	filter: hue-rotate(100deg);
+}
+
+.buttonsss button:hover{
+	background-position: center;
+  color: white;
+}
+
+/* carousel */
+.container{
+	position: absolute;
+	top: 50%;
+	left: 70%;
+  height: 500px;
+  width: 350px;
+	transform: translate(-50%, -50%);
+	overflow: hidden;
+}
+
+.slide-navigator{
+	display: flex;
+	position: absolute;
+	left:50%;
+	bottom: 20px;
+	transform: translate(-50%);
+}
+
+.slide-navigator .bar{
+	height: 5px;
+	width: 45px;
+	background: #100f0f;
+	cursor: pointer;
+	margin-left: 8px;
+	box-shadow: 2px 3px 6px #fff, -2px -2px 6px #fff;
+}
+
+.slide-navigator .bar:hover{
+	background: #fff;
+}
+
+.slides input[type="radio"]{
+	position: absolute;
+	visibility: hidden;
+}
+
+.slides{
+	display: flex;
+	height: 100%;
+	width: 500%;
+}
+
+.slide-image{
+	width: 20%;
+	transition: 0.4s ease;
+}
+
+.slides img{
+	width: 100%;
+	height: 100%;
+}
+
+#btn1:checked ~ .first{
+	margin-left: 0;
+}
+
+#btn2:checked ~ .first{
+	margin-left: -20%;
+}
+
+#btn3:checked ~ .first{
+	margin-left: -40%;
+}
+
+#btn4:checked ~ .first{
+	margin-left: -60%;
+}
+
+#btn5:checked ~ .first{
+	margin-left: -80%;
+}
+
+    /* footer */
+    /*footer effects only bellow*/
+footer{
+	background-color: #111;
+}
+
+.footerContainer{
+	width: 100%;
+	padding: 20px 20px 5px;
+}
+
+.socialIcons{
+	display: flex;
+	justify-content: center;
+}
+
+.socialIcons a{
+	text-decoration: none;
+	padding: 10px;
+	background-color: white;
+	margin: 10px;
+	border-radius: 50%;
+	font-size: 20px;
+}
+
+.socialIcons a i{
+	color: black;
+	opacity: 0.9;
+}
+
+.socialIcons a:hover {
+	background-color: black;
+	transition: 0.5s;
+}
+
+.socialIcons a:hover i{
+	color: white;
+	transition: 0.5s;
+}
+
+.footerBottom{
+	background-color: #000;
+	padding: 20px;
+	text-align: center;
+}
+
+.footerBottom p{
+	color:white;
+}
+
+
+
+
+
+
+/*
+=============== 
+Questions
+===============
+*/
+  .questiontitle .imageniarvin{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+  }
+
+  .questiontitle {
+	margin-top: 5vh;
+	margin-bottom: 2rem;
+  }
+  .questiontitle h2 {
+  font-size: 50px;
+  font-family: "Sofia", cursive;
+	text-align: center;
+  color: #ff557f;
+  }
+  .questiontitle h3 {
+    font-size: 20px;
+    font-family: "Helvetica", Sans-serif;
+    text-align: center;
+    }
+  .questiontitle p {
+    font-size:20px;
+  font-family: "Helvetica", Sans-serif;
+  width: 50%;
+  margin-left: 25%;
+  text-indent: 5%;
+  }
+
+  .questiontitle ul{
+    display: inline-block;
+    text-align: justify;
+    
+  }
+
+  .questiontitle .listahan{
+    margin: 0 auto; 
+    max-width: 46rem; 
+  }
+
+  .questiontitle li {
+    color:black;
+    list-style:none;
+    position: relative;
+    padding-left:30px;
+    line-height: 2;
+    font-size:20px;
+  }
+  
+  .questiontitle li:before {
+    font-family:FontAwesome;
+    position: absolute;
+    left: 0;
+    color: rgb(73, 208, 226);
+    font-size:20px;
+    
+  }
+
+  .questiontitle li.two:before {
+    content:"\f00c";
+ }
+
+  .questiontitle li.four:before {
+    content:"\f004";
+ }
+
+ .questiontitle li:hover:before {
+    color: #ff557f;
+  }
+
+  .questiontitle .blue{
+    color: rgb(73, 208, 226);
+  }
+  .section-center {
+	max-width: var(--fixed-width);
+	margin:auto;
+	font-family: "Helvetica", Sans-serif;
+  }
+  .question {
+	background: var(--clr-white);
+	border-radius: var(--radius);
+	box-shadow: var(--light-shadow);
+	padding: 1.5rem 1.5rem 0 1.5rem;
+	margin-bottom: 2rem;
+  }
+  .question-title {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	text-transform: capitalize;
+	padding-bottom: 1rem;
+  }
+  .question-title p {
+	margin-bottom: 0;
+	letter-spacing: var(--spacing);
+	color: var(--clr-grey-1);
+  }
+  .question-btn {
+	font-size: 1.5rem;
+	background: transparent;
+	border-color: transparent;
+	cursor: pointer;
+	color: #ff557f;
+	transition: var(--transition);
+  }
+  .question-btn:hover {
+	transform: rotate(90deg);
+  }
+  .question-text {
+	padding: 1rem 0 1.5rem 1rem;
+	border-top: 1px solid rgba(0, 0, 0, 0.2);
+  }
+  .question-text p {
+	margin-bottom: 0;
+  }
+  /* hide text */
+  .question-text {
+	display: none;
+  }
+  .show-text .question-text {
+	display: block;
+  }
+  .minus-icon {
+	display: none;
+  }
+  .show-text .minus-icon {
+	display: inline;
+  }
+  .show-text .plus-icon {
+	display: none;
+  } 
+
+/*FAQ*/
+
+/*timeline*/
+.list-ic a {
+  color: black;
+  text-decoration: none;
+  pointer-events: none;
+  cursor: default;
+}
+.list-ic li {
+  position: relative;
+}
+.list-ic li span {
+  display: inline-block;
+  font-weight: 800;
+  width: 2em;
+  height: 2em;
+  text-align: center;
+  line-height: 2em;
+  border-radius: 1em;
+  background: #ff557f;
+  color: white;
+  position: relative;
+}
+.list-ic li::before {
+  content: '';
+  position: absolute;
+  background: #ff557f;
+  z-index: -1;
+}
+.list-ic.vertical {
+  padding: 0;
+  margin: 0;
+}
+.list-ic.vertical li {
+  list-style-type: none;
+  text-align: left;
+}
+.list-ic.vertical li span {
+  margin: .5em 0;
+}
+.list-ic.vertical li::before {
+  top: -35px;
+  left: 48px;
+  width: 0.2em;
+  height: 4em;
+}
+.list-ic li:first-child::before {
+  display: none;
+}
+
+/*references*/
+li.six:before {
+  content:"\f0e7";
+}
